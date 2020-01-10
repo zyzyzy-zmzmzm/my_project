@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <h2>用户管理</h2>
+    <a th:href="@{/jump}">添加用户</a>
+    <table border="80%" bgcolor="#00bfff">
+        <thead>
+        <tr>
+            <th>
+                员工id
+            </th>
+            <th>
+                员工姓名
+            </th>
+            <th>
+                员工部门id
+            </th>
+            <th>
+                员工性别
+            </th>
+            <th>
+                员工电话
+            </th>
+            <th>
+                员工邮箱
+            </th>
+            <th>
+                入职时间
+            </th>
+            <th>
+                其他操作
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee,member:${list}">
+<!--            <td th:text="${member.index+1}"></td>-->
+            <td th:text="${employee.empId}"></td>
+            <td th:text="${employee.empName}"></td>
+            <td th:text="${employee.department.deptId}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td th:text="${employee.phone}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${#dates.format(employee.hireDate,'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td>
+                    <a th:href="@{/jumpupdate(empId=${employee.empId})}">修改</a>
+                    <a th:href="@{/delete/{empId}(empId=${employee.empId})}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

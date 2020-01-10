@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form action="/addEmployee">
+            员工名：<input type="text" name="empName" placeholder="员工名"><br/>
+            性别：男<input type="radio" name="gender" value="男">
+            女 <input type="radio" name="gender" value="女"><br/>
+            <select name="department.deptId">
+                <option th:each="dep:${list}" th:text="${dep.deptName}" th:value="${dep.deptId}"></option>
+            </select><br/>
+            员工电话：<input type="text" name="phone"><br/>
+            邮箱：<input type="text" name="email"><br/>
+            入职时间：<input type="text" name="hireDate"><br/>
+            <input type="submit" value="提交">
+        </form>
+
+</body>
+</html>
