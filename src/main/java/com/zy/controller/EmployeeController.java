@@ -78,11 +78,11 @@ public class EmployeeController {
     public String jumpupdate(@PathVariable("empId") Integer empId,Model model){
 
     }
-
     /**
-     * 更新员工
      * @param employee
      * @return
+    /**
+     * 更新员工
      */
     @GetMapping("/updateEmployee")
     public String updateEmployee(Employee employee){
